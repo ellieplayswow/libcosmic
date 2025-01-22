@@ -1,5 +1,6 @@
 use iced_core::keyboard::{Key, Modifiers};
 use std::fmt;
+use serde::{Deserialize, Serialize};
 
 /// Represents the modifier keys on a keyboard.
 ///
@@ -8,7 +9,7 @@ use std::fmt;
 /// * `Ctrl`: Represents the Control key.
 /// * `Alt`: Represents the Alt key.
 /// * `Shift`: Represents the Shift key.
-#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Copy, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub enum Modifier {
     Super,
     Ctrl,
@@ -18,7 +19,7 @@ pub enum Modifier {
 
 /// Represents a combination of a key and modifiers.
 /// It is used to define keyboard shortcuts.
-#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
+#[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd, Serialize, Deserialize)]
 pub struct KeyBind {
     /// A vector of modifiers for the key binding.
     pub modifiers: Vec<Modifier>,
